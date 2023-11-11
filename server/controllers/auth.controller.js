@@ -7,7 +7,7 @@ export const signup = async (req, res, next) => {
     const {username, email, password} = req.body;
 
     if (username < 8) {
-        return next(errorHandler(400, ''))
+        return next(errorHandler(400, 'username minimun 8 character'));
     }
 
     const hashedPassword = bcryptjs.hashSync(password, 10);
